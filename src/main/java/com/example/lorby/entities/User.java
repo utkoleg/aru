@@ -31,6 +31,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    private boolean enabled = false;
+
+    private String verificationToken;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -45,8 +49,6 @@ public class User implements UserDetails {
     public String getUsername() {
         return username;
     }
-
-
 
     @Override
     public boolean isAccountNonExpired() {
@@ -65,6 +67,11 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.enabled; // Return the enabled status for the user
+    }
+
+    // Generate a verification token for the user
+    public void generateVerificationToken() {
+        this.verificationToken = UUID.randomUUID().toString();
     }
 }

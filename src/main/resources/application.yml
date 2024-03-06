@@ -19,11 +19,20 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: utkaleg@gmail.com
+    password: lxkq gudf tlss fcay
+    properties:
+      mail:
+        smtp:
+           auth: true
+           starttls:
+             enable: true
 
 management:
   endpoint:
     web:
       exposure:
         include: "*"
-
-
