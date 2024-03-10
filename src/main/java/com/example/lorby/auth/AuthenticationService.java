@@ -56,7 +56,7 @@ public class AuthenticationService {
     }
 
     private void sendVerificationEmail(User user) {
-        String verificationUrl = "http://localhost:8080/api/v1/auth/verify?token=" + user.getVerificationToken();
+        String verificationUrl = "http://134.209.238.169:8080/api/v1/auth/verify?token=" + user.getVerificationToken();
         String emailText = "Please verify your email by clicking the link: " + verificationUrl;
         emailService.sendVerificationEmail(user.getEmail(), "Email Verification", emailText);
     }
